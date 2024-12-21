@@ -2,9 +2,9 @@ import { TypographyProps } from "./Typography.types";
 import * as T from "./Typography.styles";
 
 const Typography = (props: TypographyProps) => {
-    const {variantTypography, ...restProps} = props;
+    const {variant, ...restProps} = props;
 
-    switch(variantTypography){
+    switch(variant){
         case "title_login_bar":
             return <T.Title_login_bar  {...restProps}/>;
 
@@ -17,7 +17,7 @@ const Typography = (props: TypographyProps) => {
         case "subtitle_login_sign":
         return <T.Subtitle_login_sign {...restProps} />;
 
-        case "text_buton":
+        case "text_button":
             return <T.Text_Button{...restProps}/>;
         
         default: return <h1/>;

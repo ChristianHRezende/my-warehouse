@@ -11,16 +11,16 @@ function App() {
       <div className = "container">
         <div className = "left"> 
        
-          <Typography variantTypography="title_login_bar">
+          <Typography variant="title_login_bar">
             Cubix
           </Typography>
           
-          <Typography variantTypography="subtitle_login_bar">
+          <Typography variant="subtitle_login_bar">
             The most popular Warehouse System is here.
           </Typography>
 
           <Button variant="primary">
-            <Typography variantTypography="text_buton">
+            <Typography variant="text_button">
               Know More
             </Typography>
             <FaArrowRight style={{ marginLeft: '0px' }}/>
@@ -29,7 +29,7 @@ function App() {
 
         <div className = "right">
           <Button variant="secondary">
-              <Typography variantTypography="text_buton">
+              <Typography variant="text_button">
                 Login
               </Typography>
              

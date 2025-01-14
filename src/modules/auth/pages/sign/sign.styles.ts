@@ -31,3 +31,6 @@ export const RightContainer = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+
+

@@ -5,18 +5,12 @@ export const PrimaryButton = styled.button`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 8px 30px;
-  gap: 10px;
-
   width: 154px;
   height: 37px;
 
   background: #be202f;
   border-radius: 30px;
 
-  flex: none;
-  order: 1;
-  flex-grow: 0;
 `;
 
 export const SecondaryButton = styled.button`
@@ -33,9 +27,6 @@ export const SecondaryButton = styled.button`
   background: #be202f;
   border-radius: 30px;
 
-  flex: none;
-  order: 1;
-  flex-grow: 0;
 `;
 export const ErrorButton = styled.button``;
 

@@ -1,7 +1,9 @@
 import { Typography } from "../../../../@shared/components/dataDisplay/Typography";
 import { Button } from "../../../../@shared/components";
 import { FaArrowRight } from 'react-icons/fa';
+
 import * as S from "./sign.styles"
+import { InputLogin } from "../../../../@shared/components/inputs/InputLogin";
 
 
 const SignIn = () => {
@@ -21,13 +23,31 @@ const SignIn = () => {
                     <FaArrowRight style={{ marginLeft: '0px' }} />
                 </Button>
             </S.LeftContainer>
+            
             <S.RightContainer>
-                <Button variant="secondary">
-                    <Typography variant="text_button">
-                        Login
-                    </Typography>
-                </Button>
+                <div className="InputLogin_Style">
+                    
+                    <Typography variant="title_div_login">HELLO!</Typography>
+                    <Typography variant="subtitle_div_login">Sign in to Get Started</Typography>
+                    <InputLogin variant = "username"
+                        name="username"
+                        onChange={(e) => console.log(e.target.value)}>
+                            
+                        </InputLogin>
+                        
+                    <InputLogin variant = "password"
+                        name="password"
+                        onChange={(e) => console.log(e.target.value)}
+                    />
+                    
+                    <Button variant="secondary">
+                        <Typography variant="text_button">
+                            Login
+                        </Typography>
+                    </Button>
+                </div>
             </S.RightContainer>
+           
         </S.Container>
     )
 }

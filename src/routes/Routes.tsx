@@ -7,7 +7,7 @@ const Routes = () => {
     return (
         <RRRoutes>
             <Route path="auth" >
-                <Route index element={<SignIn />} />
+                <Route path="/auth" element={<SignIn />} />
             </Route>
         </RRRoutes>
     )

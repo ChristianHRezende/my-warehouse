@@ -1,14 +1,33 @@
 import { Typography } from "../../../../@shared/components/dataDisplay/Typography";
 import { Button } from "../../../../@shared/components";
 import { FaArrowRight } from "react-icons/fa";
-
 import * as S from "./sign.styles";
 import { InputLogin } from "../../../../@shared/components/inputs/InputLogin";
 import useSignIn from "./hooks/userSignIn";
 
 const SignIn = () => {
-  const { loading, setUsername, setPassword, requestSignIn } = useSignIn();
+  const {
+    loading,
+    username,
+    password,
+    setUsername,
+    setPassword,
+    requestSignIn,
+  } = useSignIn();
+
   function handleSubmit() {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(username)) {
+      setPassword("");
+      alert("E-Mail Invalido");
+
+      return;
+    }
+    if (password.length < 6) {
+      setPassword("");
+      alert("Password Invalido");
+      return;
+    }
     requestSignIn();
   }
 
@@ -23,6 +42,7 @@ const SignIn = () => {
         - pass min 6 caracteres
         - caso nao atenda nenhuma das duas
             - mostra um alert
+
             - alert("o campo deve ter no minimo 6 carac")   
     - criar pagine home 
     - criar pagina signUp
@@ -54,13 +74,17 @@ const SignIn = () => {
               <InputLogin
                 variant="username"
                 name="username"
+                type="email"
                 onChange={(e) => setUsername(e.target.value)}
               ></InputLogin>
               <InputLogin
                 variant="password"
                 name="password"
+                type="password"
+                value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+
               <Button variant="secondary" onClick={handleSubmit}>
                 <Typography variant="text_button">Login</Typography>
               </Button>

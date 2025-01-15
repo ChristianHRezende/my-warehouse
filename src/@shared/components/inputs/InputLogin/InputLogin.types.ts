@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
 type DefaultInputLoginProps = React.JSX.IntrinsicElements["input"];
 
-export interface inputLoginProps extends DefaultInputLoginProps{
-  variant: "username" | "password";
+export interface InputLoginProps extends DefaultInputLoginProps {
+  variant: "password" | "username";
 }

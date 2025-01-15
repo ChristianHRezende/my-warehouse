@@ -26,6 +26,8 @@ export default function useSignIn() {
 
   return {
     loading,
+    username,
+    password,
     setUsername,
     setPassword,
     requestSignIn,

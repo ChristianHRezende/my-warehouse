@@ -8,11 +8,27 @@ import useSignIn from "./hooks/userSignIn";
 
 const SignIn = () => {
   const { loading, setUsername, setPassword, requestSignIn } = useSignIn();
-
   function handleSubmit() {
     requestSignIn();
   }
 
+  /* View
+    - adicionar mascara email
+        - type="email"
+    - adicionar ********
+        - type="password"
+    - handleSubmit
+        - antes de chamar o requestSignIn
+        - valida se email tem @
+        - pass min 6 caracteres
+        - caso nao atenda nenhuma das duas
+            - mostra um alert
+            - alert("o campo deve ter no minimo 6 carac")   
+    - criar pagine home 
+    - criar pagina signUp
+        - email , senha
+        - https://firebase.google.com/docs/auth/web/password-auth?hl=pt-br             
+*/
   return (
     <S.Container>
       <S.LeftContainer>
@@ -31,20 +47,25 @@ const SignIn = () => {
           <Typography variant="subtitle_div_login">
             Sign in to Get Started
           </Typography>
-          {loading && <p>...LOADING</p>}
-          <InputLogin
-            variant="username"
-            name="username"
-            onChange={(e) => setUsername(e.target.value)}
-          ></InputLogin>
-          <InputLogin
-            variant="password"
-            name="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <Button variant="secondary" onClick={handleSubmit}>
-            <Typography variant="text_button">Login</Typography>
-          </Button>
+          {loading ? (
+            <p>...LOADING</p>
+          ) : (
+            <>
+              <InputLogin
+                variant="username"
+                name="username"
+                onChange={(e) => setUsername(e.target.value)}
+              ></InputLogin>
+              <InputLogin
+                variant="password"
+                name="password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <Button variant="secondary" onClick={handleSubmit}>
+                <Typography variant="text_button">Login</Typography>
+              </Button>
+            </>
+          )}
         </div>
       </S.RightContainer>
     </S.Container>

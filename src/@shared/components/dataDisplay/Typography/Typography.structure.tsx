@@ -22,6 +22,8 @@ const Typography = (props: TypographyProps) => {
 
         case "subtitle_div_login":
             return <T.subtitle_div_login{...restProps}/>;
+            case "text_button":
+                return <T.Text_Button {...restProps}/>;
         
         default: return <h1/>;
     }

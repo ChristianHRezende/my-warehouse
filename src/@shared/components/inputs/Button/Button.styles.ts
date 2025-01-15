@@ -10,7 +10,6 @@ export const PrimaryButton = styled.button`
 
   background: #be202f;
   border-radius: 30px;
-
 `;
 
 export const SecondaryButton = styled.button`
@@ -26,7 +25,6 @@ export const SecondaryButton = styled.button`
 
   background: #be202f;
   border-radius: 30px;
-
 `;
 export const ErrorButton = styled.button``;
 

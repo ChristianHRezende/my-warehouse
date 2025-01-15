@@ -6,8 +6,8 @@ import { SignIn } from "../modules";
 const Routes = () => {
     return (
         <RRRoutes>
-            <Route path="auth" >
-                <Route path="/auth" element={<SignIn />} />
+            <Route path="/" >
+                <Route index element={<SignIn />} />
             </Route>
         </RRRoutes>
     )

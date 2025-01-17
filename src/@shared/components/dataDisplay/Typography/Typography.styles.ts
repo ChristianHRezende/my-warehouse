@@ -64,4 +64,29 @@ export const Text_Button = styled.h2`
   color: #ffffff;
 `;
 
+export const Register_button = styled.p`
+/* Remember */
+
+width: 346px;
+height: 21px;
+cursor: pointer ;
+text-decoration: underline;
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+text-align: center;
+
+color: #333333;
+
+opacity: 0.7;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+`;
+
 export const Subtitle_login_sign = styled.h1``;

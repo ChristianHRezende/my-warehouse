@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const PrimaryButton = styled.button`
   display: flex;
@@ -14,17 +14,18 @@ export const PrimaryButton = styled.button`
 
 export const SecondaryButton = styled.button`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 8px 30px;
   gap: 10px;
-
-  width: 154px;
-  height: 37px;
-
+  width: 346px;
+  height: 57px;
   background: #be202f;
   border-radius: 30px;
+  /* Button */
+
+  /* Button */
 `;
 export const ErrorButton = styled.button``;
 

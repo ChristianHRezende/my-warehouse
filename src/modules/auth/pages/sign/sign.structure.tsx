@@ -26,7 +26,7 @@ const SignIn = () => {
   const { loading: loadingSignUp, requestSingUp } = useSignUp();
 
   function onSignInSuccess() {
-    navigate('/home');
+    navigate('/management');
   }
 
   function onSignInError(error: string) {

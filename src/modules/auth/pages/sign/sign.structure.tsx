@@ -6,12 +6,25 @@ import { InputLogin } from '../../../../@shared/components/inputs/InputLogin';
 import useSignIn from './hooks/userSignIn';
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
+import useSignUp from './hooks/userSignUp';
 
 const SignIn = () => {
   const [isSignUp, setIsSignUp] = useState(false);
   const navigate = useNavigate();
-  const { username, password, setUsername, setPassword, requestSignIn } =
-    useSignIn();
+  const {
+    loading,
+    username,
+    password,
+    setUsername,
+    setPassword,
+    requestSignIn,
+  } = useSignIn();
+
+  const { loading: loadingSignUp, requestSingUp } = useSignUp();
+
+  /* TODO:
+    função para validar (separar e fazer a chamada, otimizar)
+  */
 
   function handleSubmit() {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -49,9 +62,13 @@ const SignIn = () => {
       return;
     }
     alert('Cadastro Realizado !'); //Remove allert beffore to do
+
     setIsSignUp(!isSignUp);
-    setPassword('');
-    setUsername(''); // Não está alterando o estado (verificar).
+    requestSingUp(username, password)
+      .then(() => setIsSignUp(!isSignUp))
+      .catch(error => {
+        alert('erro ao realizar cadastro' + error);
+      });
   }
 
   function handleToggleForm() {
@@ -102,6 +119,7 @@ const SignIn = () => {
                 variant="username"
                 name="username"
                 type="email"
+                value={username}
                 placeholder="E-mail"
                 onChange={e => setUsername(e.target.value)}
               />
@@ -113,10 +131,15 @@ const SignIn = () => {
                 value={password}
                 onChange={e => setPassword(e.target.value)}
               />
-
-              <Button variant="secondary" onClick={handleSignUp}>
-                <Typography variant="text_button"> Register </Typography>
-              </Button>
+              {loadingSignUp ? (
+                <div>
+                  <h1>Loading</h1>
+                </div>
+              ) : (
+                <Button variant="secondary" onClick={handleSignUp}>
+                  <Typography variant="text_button"> Register </Typography>
+                </Button>
+              )}
               <Typography variant="register_button" onClick={handleToggleForm}>
                 {isSignUp
                   ? 'Already have an account? Sign-in'
@@ -142,9 +165,15 @@ const SignIn = () => {
                 onChange={e => setPassword(e.target.value)}
               />
 
-              <Button variant="secondary" onClick={handleSubmit}>
-                <Typography variant="text_button">Login</Typography>
-              </Button>
+              {loading ? (
+                <div>
+                  <h1>Loading</h1>
+                </div>
+              ) : (
+                <Button variant="secondary" onClick={handleSubmit}>
+                  <Typography variant="text_button">Login</Typography>
+                </Button>
+              )}
               <Typography variant="register_button" onClick={handleToggleForm}>
                 {isSignUp
                   ? 'Already have an account? Sign-in'

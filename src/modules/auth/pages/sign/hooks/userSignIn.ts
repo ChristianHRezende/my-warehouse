@@ -1,27 +1,33 @@
 import { useState } from 'react';
-import { auth } from '../../../../../@shared/lib/firebase';
+import { authenticate } from '../services';
 
-export default function useSignIn() {
+interface UseSignInParams {
+  onSuccess: () => void;
+  onError: (error: string) => void;
+}
+
+export default function useSignIn(params: UseSignInParams) {
+  const { onSuccess, onError } = params;
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
 
   async function requestSignIn() {
     setLoading(true);
-    await auth
-      .signInWithEmailAndPassword(auth.getAuth(), username, password)
-      .then(userCredential => {
-        // O usuário fez login com sucesso
-        const user = userCredential.user;
-        console.log('Usuário logado:', user);
-      })
-      .catch(error => {
-        // Erro ao fazer login
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.error('Erro ao fazer login:', errorCode, errorMessage);
-      });
-    setLoading(false);
+    try {
+      const user = await authenticate(username, password);
+      if (!user) {
+        throw new Error('user not found');
+      }
+      onSuccess();
+    } catch (error) {
+      const errorResponse = error as {
+        message: string;
+      };
+      onError(errorResponse.message);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return {

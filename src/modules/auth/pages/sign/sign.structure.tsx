@@ -18,9 +18,20 @@ const SignIn = () => {
     setUsername,
     setPassword,
     requestSignIn,
-  } = useSignIn();
+  } = useSignIn({
+    onSuccess: onSignInSuccess,
+    onError: onSignInError,
+  });
 
   const { loading: loadingSignUp, requestSingUp } = useSignUp();
+
+  function onSignInSuccess() {
+    navigate('/home');
+  }
+
+  function onSignInError(error: string) {
+    alert('Erro ao realizar login: ' + error);
+  }
 
   /* TODO:
     função para validar (separar e fazer a chamada, otimizar)
@@ -38,14 +49,7 @@ const SignIn = () => {
       alert('Password Invalido');
       return;
     }
-
-    requestSignIn()
-      .then(() => {
-        navigate('/home');
-      })
-      .catch(error => {
-        alert('Erro ao realizar login: ' + error);
-      });
+    requestSignIn();
   }
 
   function handleSignUp() {

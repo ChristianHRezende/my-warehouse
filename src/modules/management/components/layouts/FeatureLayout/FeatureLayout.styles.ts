@@ -16,5 +16,7 @@ export const MenuColumn = styled.div`
 export const ContentColumn = styled.div`
   display: flex;
   flex: 4;
+  color: black;
   flex-direction: column;
+  background-color: white;
 `;

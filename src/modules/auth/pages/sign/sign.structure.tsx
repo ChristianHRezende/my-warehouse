@@ -7,6 +7,8 @@ import useSignIn from './hooks/userSignIn';
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import useSignUp from './hooks/userSignUp';
+import RuleEmailPassword from './rulesValidation/EmailAndPassword';
+import Register from './services/register';
 
 const SignIn = () => {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -23,7 +25,7 @@ const SignIn = () => {
     onError: onSignInError,
   });
 
-  const { loading: loadingSignUp, requestSingUp } = useSignUp();
+  const { loading: loadingSignUp } = useSignUp();
 
   function onSignInSuccess() {
     navigate('/management');
@@ -33,69 +35,21 @@ const SignIn = () => {
     alert('Erro ao realizar login: ' + error);
   }
 
-  /* TODO:
-    função para validar (separar e fazer a chamada, otimizar)
-  */
-
   function handleSubmit() {
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailRegex.test(username)) {
-      setPassword('');
-      alert('E-Mail Invalido');
-      return;
-    }
-    if (password.length < 6) {
-      setPassword('');
-      alert('Password Invalido');
-      return;
-    }
+    RuleEmailPassword(username, password);
     requestSignIn();
   }
 
   function handleSignUp() {
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailRegex.test(username)) {
-      setPassword('');
-      alert('E-Mail Invalido');
-
-      return;
-    }
-    if (password.length < 6) {
-      setPassword('');
-      alert('Password Invalido');
-      return;
-    }
-    alert('Cadastro Realizado !'); //Remove allert beffore to do
-
+    RuleEmailPassword(username, password); //Remove allert beffore to do
     setIsSignUp(!isSignUp);
-    requestSingUp(username, password)
-      .then(() => setIsSignUp(!isSignUp))
-      .catch(error => {
-        alert('erro ao realizar cadastro' + error);
-      });
+    Register(username, password);
   }
 
   function handleToggleForm() {
     setIsSignUp(!isSignUp);
   }
-  /* View
-    - adicionar mascara email
-        - type="email"
-    - adicionar ********
-        - type="password"
-    - handleSubmit
-        - antes de chamar o requestSignIn
-        - valida se email tem @
-        - pass min 6 caracteres
-        - caso nao atenda nenhuma das duas
-            - mostra um alert
 
-            - alert("o campo deve ter no minimo 6 carac")   
-    - criar pagine home 
-    - criar pagina signUp
-        - email , senha
-        - https://firebase.google.com/docs/auth/web/password-auth?hl=pt-br             
-*/
   return (
     <S.Container>
       <S.LeftContainer>

@@ -1,7 +1,11 @@
-import { Typography } from '../../../../@shared/components/dataDisplay/Typography';
+import { FeatureLayout } from '../../../management/components';
 
 const PagHome = () => {
-  return <Typography variant="title_login_bar">Hello world </Typography>;
+  return (
+    <>
+      <FeatureLayout></FeatureLayout>
+    </>
+  );
 };
 
 export default PagHome;

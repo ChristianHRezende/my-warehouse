@@ -2,6 +2,8 @@ import React from 'react';
 import * as S from './FeatureLayout.styles';
 import CenterGrid from '../../../../../@shared/components/Layout/DataGrid/CenterGrid.structure';
 import { columns, rows } from '../../../DateForCentralGrid/DateCentralGrid';
+import { Tentativa_buton } from '../../../../../@shared/components/dataDisplay/Typography/Typography.styles';
+import { FiSettings } from 'react-icons/fi';
 
 type FeatureLayoutProps = React.PropsWithChildren;
 
@@ -9,8 +11,34 @@ const FeatureLayout = (props: FeatureLayoutProps) => {
   return (
     <S.Container>
       <S.MenuColumn>
-        <p>itens</p>
-        <p>Configs</p>
+        <S.containerHeader>
+          <Tentativa_buton>
+            {' '}
+            <FiSettings size={14} style={{ marginRight: '8px' }} />
+            Purchase
+          </Tentativa_buton>
+          <Tentativa_buton>
+            <FiSettings size={14} style={{ marginRight: '8px' }} />
+            Customer Order
+          </Tentativa_buton>
+        </S.containerHeader>
+        <S.ContainerDown>
+          <Tentativa_buton>
+            {' '}
+            <FiSettings size={14} style={{ marginRight: '8px' }} />
+            Item
+          </Tentativa_buton>
+          <Tentativa_buton>
+            {' '}
+            <FiSettings size={14} style={{ marginRight: '8px' }} />
+            User
+          </Tentativa_buton>
+          <Tentativa_buton>
+            {' '}
+            <FiSettings size={14} style={{ marginRight: '8px' }} />
+            Settings
+          </Tentativa_buton>
+        </S.ContainerDown>
       </S.MenuColumn>
       <S.ContentColumn>
         {props.children}

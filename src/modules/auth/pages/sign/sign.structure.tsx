@@ -28,7 +28,7 @@ const SignIn = () => {
   const { loading: loadingSignUp } = useSignUp();
 
   function onSignInSuccess() {
-    navigate('/management');
+    navigate('/home');
   }
 
   function onSignInError(error: string) {
@@ -41,8 +41,7 @@ const SignIn = () => {
   }
 
   function handleSignUp() {
-    RuleEmailPassword(username, password); //Remove allert beffore to do
-    setIsSignUp(!isSignUp);
+    RuleEmailPassword(username, password);
     Register(username, password);
   }
 

@@ -1,1 +1,1 @@
-export { default as FeatureLayout } from './FeatureLayout';
+export { default as FeatureLayout } from './FeatureLayout.structure';

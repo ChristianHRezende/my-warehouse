@@ -28,6 +28,8 @@ const Typography = (props: TypographyProps) => {
 
     case 'tentativa_buto':
       return <T.Tentativa_buton {...restProps} />;
+    case 'main_home':
+      return <T.Tentativa_buton {...restProps} />;
 
     default:
       return <h1 />;

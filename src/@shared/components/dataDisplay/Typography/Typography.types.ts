@@ -12,5 +12,6 @@ export interface TypographyProps extends DefaultTypographyProps {
     | 'title_div_login'
     | 'subtitle_div_login'
     | 'register_button'
-    | 'tentativa_buto';
+    | 'tentativa_buto'
+    | 'main_home';
 }

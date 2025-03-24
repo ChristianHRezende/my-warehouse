@@ -112,3 +112,29 @@ export const Tentativa_buton = styled.h1`
   flex-grow: 1;
   z-index: 2;
 `;
+
+export const Main_home = styled.h1`
+  /* Main */
+
+  width: 204px;
+  height: 24px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 24px;
+  /* identical to box height, or 218% */
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  margin-left: 0.5%;
+  /* Primary Color */
+  color: #be202f;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 1;
+`;

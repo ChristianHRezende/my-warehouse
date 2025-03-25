@@ -3,10 +3,10 @@ import * as S from './FeatureLayout.styles';
 import * as T from '../../../../../@shared/components/dataDisplay/Typography/Typography.styles';
 import CenterGrid from '../../../../../@shared/components/Layout/DataGrid/CenterGrid.structure';
 import { columns, rows } from '../../DateForCentralGrid/DateCentralGrid';
-import { Tentativa_buton } from '../../../../../@shared/components/dataDisplay/Typography/Typography.styles';
 import { FiSettings } from 'react-icons/fi';
 import { BasicSpeedDial } from '../../Navigation';
 import TextField from '../../../../../@shared/components/inputs/TextField/TextField.structure';
+import { Button } from '../../../../../@shared/components';
 
 type FeatureLayoutProps = React.PropsWithChildren;
 
@@ -18,32 +18,32 @@ const FeatureLayout = (props: FeatureLayoutProps) => {
         <S.MenuColumn>
           <S.containerHeader>
             <T.Main_home>MAIN</T.Main_home>
-            <Tentativa_buton>
+            <Button variant="appBarRightButton">
               {' '}
               <FiSettings size={14} style={{ marginRight: '8px' }} />
               Purchase
-            </Tentativa_buton>
-            <Tentativa_buton>
+            </Button>
+            <Button variant="appBarRightButton">
               <FiSettings size={14} style={{ marginRight: '8px' }} />
               Customer Order
-            </Tentativa_buton>
+            </Button>
           </S.containerHeader>
           <S.ContainerDown>
-            <Tentativa_buton>
+            <Button variant="appBarRightButton">
               {' '}
               <FiSettings size={14} style={{ marginRight: '8px' }} />
-              Item
-            </Tentativa_buton>
-            <Tentativa_buton>
+              New
+            </Button>
+            <Button variant="appBarRightButton">
               {' '}
               <FiSettings size={14} style={{ marginRight: '8px' }} />
               User
-            </Tentativa_buton>
-            <Tentativa_buton>
+            </Button>
+            <Button variant="appBarRightButton">
               {' '}
               <FiSettings size={14} style={{ marginRight: '8px' }} />
               Settings
-            </Tentativa_buton>
+            </Button>
           </S.ContainerDown>
         </S.MenuColumn>
         <S.ContentColumn>

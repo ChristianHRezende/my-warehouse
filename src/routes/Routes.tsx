@@ -1,5 +1,5 @@
 import { Route, Routes as RRRoutes } from 'react-router';
-import { SignIn } from '../modules';
+import { PagRegisterOrdens, SignIn } from '../modules';
 import { Home } from '../modules/auth/pages/home';
 
 const Routes = () => {
@@ -7,6 +7,7 @@ const Routes = () => {
     <RRRoutes>
       <Route path="/" element={<SignIn />} />
       <Route path="/Home" element={<Home />} />
+      <Route path="/RegisterOrdens" element={<PagRegisterOrdens />} />
     </RRRoutes>
   );
 };

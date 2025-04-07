@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface InputSelectFieldProps {
+  width?: string;
+}
+
 // Wrapper para alinhar os itens horizontalmente
 export const InputWrapper = styled.div`
   display: flex;
@@ -23,6 +27,53 @@ export const InputField = styled.input`
   border: 1px solid rgba(238, 238, 238, 0.69);
   border-radius: 10px;
   font-size: 14px;
+`;
+
+export const FormTextField = styled.input`
+  /* Frame 1082 */
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+
+  width: ${prop => {
+    return prop.width || '278.34px';
+  }};
+  height: 45px;
+
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+`;
+
+export const InputSelectField = styled.select<InputSelectFieldProps>`
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+
+  width: ${prop => {
+    return prop.width || '278.34px';
+  }};
+
+  height: 45px;
+
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  color: black;
+  align-self: stretch;
 `;
 
 // Estilo dos ícones de Menu, Search e Directions

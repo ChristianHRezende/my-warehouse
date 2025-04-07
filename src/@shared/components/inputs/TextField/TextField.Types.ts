@@ -1,7 +1,12 @@
-import React from 'react';
+// type DefaultTextFieldProps = React.JSX.IntrinsicElements['text'];
 
-type DefaultTextFieldProps = React.JSX.IntrinsicElements['text'];
-
-export interface TextFieldProps extends DefaultTextFieldProps {
-  variant: 'search' | 'default';
+interface OptionSelect {
+  label: string;
+  value: string;
+}
+export interface TextFieldProps {
+  variant: 'search' | 'default' | 'select' | `form`;
+  options?: OptionSelect[];
+  width?: string;
+  placeholder?: string;
 }

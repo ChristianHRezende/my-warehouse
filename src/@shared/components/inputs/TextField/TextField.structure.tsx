@@ -5,35 +5,67 @@ import {
   IconButtonStyle,
   SearchIconWrapper,
   InputContainer,
-} from './TextField.styles'; // Importando os estilos
+  InputSelectField,
+  FormTextField,
+} from './TextField.styles';
 
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import * as T from '../../../../@shared/components/dataDisplay/Typography/Typography.styles';
+import { TextFieldProps } from './TextField.Types';
 
-interface CustomizedInputBaseProps {
-  variant: 'search' | 'default';
-}
+const TextField: React.FC<TextFieldProps> = ({
+  variant,
+  options = [],
+  placeholder = '',
+  ...restProps
+}) => {
+  switch (variant) {
+    case 'search':
+      return (
+        <InputWrapper>
+          <InputContainer>
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <InputField placeholder="Search" {...restProps} />
+            <IconButtonStyle aria-label="menu">
+              <MenuIcon />
+            </IconButtonStyle>
+          </InputContainer>
+        </InputWrapper>
+      );
 
-const TextField: React.FC<CustomizedInputBaseProps> = ({ variant }) => {
-  return (
-    <InputWrapper>
-      <T.Main_home>Customer Order</T.Main_home>
-      {variant === 'search' ? (
-        <InputContainer>
-          <SearchIconWrapper>
-            <SearchIcon />
-          </SearchIconWrapper>
-          <InputField placeholder="Search" />
-          <IconButtonStyle aria-label="menu">
-            <MenuIcon />
-          </IconButtonStyle>
-        </InputContainer>
-      ) : (
-        <InputField placeholder="Enter text" />
-      )}
-    </InputWrapper>
-  );
+    case `select`:
+      return (
+        <InputWrapper>
+          <InputSelectField {...restProps}>
+            <option value="">Selecione</option>
+            {options.map(option => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </InputSelectField>
+        </InputWrapper>
+      );
+
+    case `form`:
+      return (
+        <InputWrapper>
+          <FormTextField {...restProps}></FormTextField>;
+        </InputWrapper>
+      );
+
+    default:
+      return (
+        <InputWrapper>
+          <InputField
+            placeholder={placeholder || 'Enter text'}
+            {...restProps}
+          />
+        </InputWrapper>
+      );
+  }
 };
 
 export default TextField;

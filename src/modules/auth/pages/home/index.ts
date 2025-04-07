@@ -1,1 +1,1 @@
-export { default as Home } from './Home.Structure';
+export { default as Home } from './Home.structure';

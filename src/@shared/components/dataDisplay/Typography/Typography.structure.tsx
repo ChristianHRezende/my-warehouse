@@ -31,6 +31,9 @@ const Typography = (props: TypographyProps) => {
     case 'main_home':
       return <T.Tentativa_buton {...restProps} />;
 
+    case 'label':
+      return <T.LabelText {...restProps} />;
+
     default:
       return <h1 />;
   }

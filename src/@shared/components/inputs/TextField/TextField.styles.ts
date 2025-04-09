@@ -15,6 +15,11 @@ export const InputWrapper = styled.div`
   justify-content: end;
 `;
 
+export const InputContainerDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 // Estilo do campo de input com o ícone dentro
 export const InputField = styled.input`
   box-sizing: border-box;
